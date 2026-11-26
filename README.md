@@ -22,44 +22,48 @@ Or copy [PROMPT.md](PROMPT.md) into an AI chat. The optional installer requires 
 
 ## See it in action
 
-Say: **"Use GrillPower to help me improve my animation engine on a limited CPU budget."**
+Say: **"Use GrillPower to help me build a new feature in my project."**
 
-The agent inspects the project, then sends five questions together. For example, assuming the current renderer meets the visual requirements:
+The agent inspects your codebase and asks five important questions together. For example, assume an existing application with a working codebase, established conventions and a limited development budget.
 
-**Q1 — Rendering engine**
-- A. Optimize the existing renderer (Recommended)
-- B. Replace the renderer
-- C. Maintain two rendering backends
+**Q1 — Implementation approach**
+- A. Extend the existing codebase **(Recommended)**
+- B. Build a separate module
+- C. Replace the existing architecture
 
-Why: keeping a suitable renderer avoids migration overhead.
+Why: extending a suitable codebase avoids unnecessary migration and preserves working features.
 
-**Q2 — Character animation**
-- A. Manual keyframes
-- B. Reusable rigs with editable keyframes (Recommended)
-- C. Fully procedural motion
+**Q2 — Feature scope**
+- A. Build every proposed feature at once
+- B. Implement the essential functionality first **(Recommended)**
+- C. Build a prototype before implementation
 
-Why: reusable rigs balance production speed and creative control.
+Why: a focused scope reduces complexity and makes the first implementation easier to verify.
 
-**Q3 — Preview strategy**
-- A. Render a representative short scene first (Recommended)
-- B. Render the entire video immediately
+**Q3 — Dependencies**
+- A. Reuse existing libraries where suitable **(Recommended)**
+- B. Introduce a new third-party library
+- C. Develop a custom solution
 
-Why: a short preview reveals visual problems before expensive exports.
+Why: existing dependencies reduce integration overhead when they meet the requirements.
 
-**Q4 — CPU budget**
-- A. Fixed high-quality settings
-- B. Adaptive preview settings within an agreed budget (Recommended)
-- C. User-selected manual quality presets only
+**Q4 — Compatibility**
+- A. Allow breaking changes
+- B. Preserve existing behavior and interfaces **(Recommended)**
+- C. Introduce a versioned replacement interface
 
-Why: adaptive previews preserve responsiveness within a constrained environment.
+Why: preserving compatibility reduces regression and migration risks.
 
-**Q5 — Quality verification**
-- A. Check that the build succeeds
-- B. Check build, rendered motion and visual acceptance criteria (Recommended)
+**Q5 — Testing strategy**
+- A. Manual testing only
+- B. Focused automated tests and relevant regression checks **(Recommended)**
+- C. A comprehensive new test suite
 
-Why: a passing build does not prove animation quality.
+Why: targeted checks provide useful evidence without unnecessary testing overhead.
 
-Reply `1A, 2B, 3A, 4B, 5B` or **accept all**. The next round adapts to the actual answers. These examples illustrate the intended interaction, not a live benchmark.
+Reply `1A, 2B, 3A, 4B, 5B` or **accept all**. The next round adapts to your answers. Recommendations depend on your actual project, not a fixed framework, language or architecture.
+
+This example is illustrative, not a live benchmark. GrillPower applies the same workflow to websites, mobile apps, APIs, libraries, CLI tools, refactors, debugging and other projects.
 
 ## How it works
 

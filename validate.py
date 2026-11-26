@@ -18,12 +18,14 @@ required = (
     "README.md", "COMPATIBILITY.md", "CHANGELOG.md", "CONTRIBUTING.md",
     "examples/README.md", "templates/decision-ledger.md",
     "references/deep-review.md", "references/pressure-tests.md", "references/evaluation.md",
+    "references/interview.md", "references/delivery.md",
 )
 checks = {
     "valid frontmatter": bool(m and m[1] == "grillpower" and 1 <= len(m[2]) <= 1024),
     "skill and prompt identical": bool(body and p == body),
     "deep interview": "five distinct, consequential questions per round" in s and "exactly one Recommended option per question" in s,
     "choice format": all(x in s for x in ("(Recommended)", "all other options neutrally", "actual project", "1A, 2C")),
+    "decision quality": all(x in s for x in ("Exclude options that violate hard constraints", "Freeze each question", "retire it visibly", "two lenses within the same pass")),
     "batch adaptation": all(x in s for x in ("Q1–Q5", "Accept partial replies", "fewer than five", "not approval to implement")),
     "actual approval gate": "No implementation before the user approves" in s and "Wait." in s,
     "capability fallback": all(x in s for x in ("Conversation only", "Read-only", "Editing without execution", "Editing plus execution")),
@@ -36,6 +38,7 @@ checks = {
     "install visibility": "npx skills add clipcraftclients-art/grillpower --skill grillpower" in r,
     "benchmark honesty": "remain unmeasured" in r and "not a completed benchmark" in read("references/evaluation.md"),
     "no mandatory extra tools": "no mandatory extra tools" in s,
+    "five example recommendations": len(re.findall(r"^\*\*Q[1-5] —", r, re.M)) == 5 and all(block.count("(Recommended)") == 1 for block in re.split(r"(?=^\*\*Q[1-5] —)", r, flags=re.M)[1:]),
 }
 
 # Check relative Markdown links in all package documents; skip URLs and anchors.

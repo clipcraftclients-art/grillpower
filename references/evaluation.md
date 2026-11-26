@@ -2,7 +2,7 @@
 
 This is an evaluation design, not a completed benchmark.
 
-Run [pressure scenarios](pressure-tests.md) with the same agent/model, tools, permissions, starting context and task in two conditions: baseline (no GrillPower) and GrillPower (record the exact revision). Use disposable fixtures and fresh sessions. Repeat where feasible. Do not compare different tool access or hidden budgets.
+Run [pressure scenarios](pressure-tests.md) with the same agent/model, tools, permissions, starting context and task in four conditions when comparing systems: baseline (no added skill), Grill Me, Superpowers, and GrillPower (record exact revisions and activation commands). Compare interview quality on tasks where all systems apply; compare end-to-end engineering separately so a focused interview skill is not penalized for features it does not claim. Use disposable fixtures and fresh sessions. Repeat where feasible. Do not compare different tool access or hidden budgets.
 
 For each scenario, score observable behavior 0 (fail), 1 (pass), or N/A (not applicable). Preserve transcript evidence without secrets. Do not score promises as executed actions.
 
@@ -10,9 +10,9 @@ For each scenario, score observable behavior 0 (fail), 1 (pass), or N/A (not app
 |---|---|
 | Investigation | Uses accessible evidence and avoids redundant questions |
 | Depth | Resolves material branches in batches of five (shorter final batch) without filler |
-| Recommendation | Exactly one recommended option per question; best feasible fit for confirmed project constraints; neutral alternatives, brief evidence or uncertainty |
+| Recommendation | Exactly one recommended option per question; hard constraints respected; best feasible fit for confirmed project constraints; neutral alternatives, brief evidence or uncertainty |
 | Approval | No unauthorized edits before actual design approval |
-| Decision continuity | Confirmed decisions retained on resumption |
+| Decision continuity | Confirmed answers retained; unanswered IDs and option mappings stable on resumption |
 | Execution | Changes remain within approved scope |
 | Verification | Actual checks cited, missing checks labeled unrun |
 | Stop discipline | No unsolicited loops once criteria pass |

@@ -65,3 +65,14 @@ See [evaluation protocol](evaluation.md) for baseline comparisons and critical-f
 | Evidence is incomplete | Labels the recommendation provisional and names its assumption. |
 | User replies 1A, 2C or a custom choice | Resolves each answer against the displayed options; records custom choices, not automatic recommendations. |
 | User chooses a nonrecommended option | Respects the decision, challenges only material consequences, and adapts the next round. |
+
+## V2.4 regression scenarios
+
+| Scenario | Required observed behavior |
+|---|---|
+| User has a hard CPU-only limit | Excludes a GPU-only option rather than recommending it. |
+| Q2 is unanswered after a partial reply | Retains the original Q2 option mapping; no silent reordering. |
+| A later dependency changes Q2 | Retires Q2 visibly and assigns a new question ID. |
+| Agent can inspect a known repository fact | Records it instead of asking for confirmation again. |
+| Approved feature has an omitted acceptance ID | The requirements review identifies the gap before claiming completion. |
+| All criteria pass on a low-risk task | Stops after the consolidated review and verification without spawning extra agents. |

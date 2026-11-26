@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.4.0 — Better decisions, clearer workflow
+
+- Evidence-based recommendation gate excludes infeasible choices before ranking alternatives.
+- Stable question IDs and option mappings for partial replies; dependent decisions handled explicitly.
+- One consolidated review with requirements and engineering-quality lenses.
+- Modular optional interview and delivery playbooks; universal core still self-contained.
+- Complete five-question README demonstration, clearer navigation, and fair cross-skill comparison protocol.
+- No automatic improvement cycles or mandatory extra agents.
+
+
 ## 2.3.0 — Clear choices, one best recommendation
 
 - Five multiple-choice questions per round, with two to four viable options each.

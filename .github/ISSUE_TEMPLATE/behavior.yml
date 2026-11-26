@@ -1,0 +1,33 @@
+name: Agent behavior report
+description: Report an actual interview or implementation problem
+title: "[Behavior]: "
+body:
+  - type: input
+    id: agent
+    attributes:
+      label: Agent, model and version
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: GrillPower release or commit
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: Reproduction steps and project constraints
+      description: Remove secrets, private source code and personal data.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Actual behavior and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized transcript or verification evidence

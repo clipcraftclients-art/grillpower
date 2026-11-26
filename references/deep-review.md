@@ -37,3 +37,11 @@ Choose the recommendation, the alternative, or a different behavior.
 ## Example acceptance evidence
 
 A rendering change is not complete because compilation succeeds. Require a reproducible render command, an output file that decodes, expected dimensions/duration, sampled frames showing the targeted trait, temporal review for motion/contact where available, and a regression render of unchanged scenes. Note absent playback or reference access explicitly. Set thresholds with the user rather than manufacturing numeric style scores.
+
+## Domain extensions (use only applicable sections)
+
+- Product and business: problem validation, alternatives, target users, value proposition, distribution, operational constraints, cost assumptions and measurable outcomes.
+- Research and data: question scope, source provenance and recency, methods, sampling, confounders, missing data, replicability and uncertainty.
+- Writing and design: audience, purpose, message, style, format, accessibility, content accuracy and acceptance examples.
+- Automation and operations: triggers, idempotency, permissions, failure recovery, state, resource limits, alerting and manual fallback.
+- Hardware or offline work: actual constraints, safety, required tools, feasibility and user-performed verification. Never claim a physical action was executed.

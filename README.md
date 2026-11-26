@@ -1,14 +1,14 @@
-# GrillPower
+# GrillPower — Universal
 
-**Make your AI ask better questions before it writes a single line of code.**
+**Make any AI ask better questions before it builds the wrong thing.**
 
 Deep interviews. Hard trade-offs. Approved designs. Tested implementation. No endless improvement loops.
 
-![Version](https://img.shields.io/badge/version-1.1-orange)
+![Version](https://img.shields.io/badge/version-2.0-orange)
 ![Dependencies](https://img.shields.io/badge/runtime_dependencies-none-brightgreen)
 ![GitHub stars](https://img.shields.io/github/stars/clipcraftclients-art/grillpower?style=flat)
 
-GrillPower is a standalone AI coding skill inspired by [Grill Me](https://github.com/mattpocock/skills) and [Superpowers](https://github.com/obra/superpowers). It combines an adaptive design interview with disciplined execution and verification. It is an independent synthesis, not an official fork of either project.
+GrillPower is a standalone, model-independent AI agent skill inspired by [Grill Me](https://github.com/mattpocock/skills) and [Superpowers](https://github.com/obra/superpowers). It combines an adaptive design interview with disciplined execution and verification. It is an independent synthesis, not an official fork of either project.
 
 ## The problem
 
@@ -39,7 +39,30 @@ flowchart LR
 | Verification | Tests, regression checks and inspection of real outputs |
 | Usage discipline | No fixed improvement cycles or speculative polishing |
 
+## Use with any AI
+
+Native skills when supported; a complete paste-in prompt everywhere else. One workflow for coding, product planning, creative projects, research and operations. Actual execution depends on the host's tools and permissions.
+
+| Environment | How to use |
+|---|---|
+| Codex, Claude Code, Antigravity, Gemini CLI, Cursor, Copilot, OpenCode | Native SKILL.md integration |
+| Cline, Roo Code, Amp, OpenHands, OpenClaw and other agents | Native route where supported, or plain prompt |
+| ChatGPT, Claude, Gemini, Grok, DeepSeek, Qwen and local models | Copy [PROMPT.md](PROMPT.md) into chat or custom instructions |
+| Custom API agents | Include the prompt in the appropriate instruction context and preserve the decision ledger |
+
+[Compatibility and installation guide](COMPATIBILITY.md) · [Universal copy-paste prompt](PROMPT.md) · [Behavioral tests](references/pressure-tests.md)
+
 ## Quick start
+
+Optional installer (Node.js/network required; review its proposed installation):
+
+```bash
+npx skills add clipcraftclients-art/grillpower --skill grillpower
+```
+
+Or install manually below. No Node.js, Python, API key or additional framework is required to *use* the skill. The validator is optional.
+
+
 
 For a host that discovers skills under `~/.agents/skills` (including compatible Codex setups):
 
@@ -80,12 +103,14 @@ Deep thinking is not free. GrillPower spends effort where design decisions are c
 
 ## What's included
 
-- [SKILL.md](SKILL.md) — full workflow
+- [SKILL.md](SKILL.md) — canonical workflow
+- [PROMPT.md](PROMPT.md) — identical workflow without frontmatter for chat-only agents
+- [COMPATIBILITY.md](COMPATIBILITY.md) — native installation and fallback routes
 - [Deep review checklist](references/deep-review.md) — architecture, security, operations, UX, and optional animation/media quality
 - [Pressure tests](references/pressure-tests.md) — reproducible behavioral evaluation scenarios
 - [Validator](validate.py) — lightweight static checks
 
-Run `python3 validate.py` from a checkout named `grillpower` to validate the skill structure. Static checks do not prove model compliance or superiority to other skills. Live agent benchmarks are pending.
+Run `python3 validate.py` from any checkout or release archive to check structure, prompt parity, and reference presence. Native installations should use a folder named `grillpower`. Static checks do not prove model compliance or superiority to other skills. Live installation and behavioral benchmarks are pending. Universal means a portable instruction format and a tool-aware fallback, not identical performance or guaranteed compatibility across every host.
 
 ## Contribute
 

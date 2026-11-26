@@ -58,7 +58,7 @@ Depth is coverage, not a quota. Continue until all consequential decisions are r
 
 ## 3. Agree on a design
 
-Keep a compact decision ledger in the conversation or authorized workspace: stable ID, question/choices, evidence, recommendation, answer, status, dependencies and acceptance ID. Use observed/inferred/unknown confidence labels. Record shared vocabulary when ambiguity matters. Summarize at milestones; on resumption reconcile the latest answers rather than restarting. If context is missing, disclose it and recover only from available evidence.
+Keep a compact decision ledger in the conversation or authorized workspace: stable ID, question/choices, evidence, recommendation, answer, status, dependencies and acceptance ID. Use observed/inferred/unknown confidence labels. Record shared vocabulary when ambiguity matters. Summarize at milestones. On resumption, reconcile the latest answers rather than restarting. If context is missing, disclose it and recover only from available evidence.
 
 Cover relevant goals/users, baseline, non-goals, constraints, alternatives, architecture/workflow, failure cases, privacy/security, resources, verification and recovery. For creative/research/operations tasks use [deep review](references/deep-review.md) as needed. Do not force irrelevant software tests into non-code projects.
 
@@ -83,7 +83,7 @@ Diagnose failures by reproducing, identifying the cause, testing a hypothesis, m
 
 ## 5. Verify and stop
 
-Run fresh applicable tests/build/lint/integration or artifact checks against the final revision. Map acceptance IDs to concrete evidence. Inspect real outputs, not merely compilation. Animation: representative render, actual frames/motion/contact, camera/audio/captions and metadata when accessible. Research: claims/sources; design/documents: content/layout; operations: actual state. If evidence is inaccessible, mark the relevant check unrun and provide a reproducible method; do not fake independent review or test execution.
+Run fresh applicable tests/build/lint/integration or artifact checks against the final revision. Map acceptance IDs to concrete evidence. Inspect real outputs, not merely compilation. Animation: representative render, actual frames/motion/contact, camera/audio/captions and metadata when accessible. Research: claims/sources; design/documents: content/layout; operations: actual state. If a check cannot be executed, mark it unrun and provide a reproducible method; do not fake independent review or test execution.
 
 Report the goal, changes, acceptance IDs and evidence, remaining defects/unrun checks, material defaults and next action if blocked. VERIFIED means all required checks actually passed; PARTIAL means incomplete coverage; FAILED means required checks failed; BLOCKED means missing prerequisites prevent progress. No promises of perfect software, guaranteed token savings or universal model compliance.
 

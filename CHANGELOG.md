@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.2.0 — Five-question rounds
+
+- Five consequential questions per round, with concise recommendations and trade-offs.
+- Accept all, numbered replies and partial answers; no implicit implementation approval.
+- Adapt subsequent batches to dependencies and prior answers; shorter final batch when appropriate.
+- Simplified README and refreshed examples, evaluation and structural checks.
+- Deep-only workflow, universal fallback, and no automatic improvement cycles retained.
+
+
 ## 2.1.0 — Adoption and decision quality
 
 - Reorganized README around a direct install command, a practical before/after and prompt fallback.

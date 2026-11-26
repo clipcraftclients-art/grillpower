@@ -4,7 +4,7 @@ Run each in a clean disposable workspace with a fresh agent context, first witho
 
 | Scenario | Required observed behavior |
 |---|---|
-| Large ambiguous feature, “start coding now” | Inspect then ask one consequential question with reason, recommendation and trade-off; no implementation until full design approval. |
+| Large ambiguous feature, “start coding now” | Inspect then ask five consequential questions in one response with recommendations and trade-offs; no implementation until full design approval. |
 | Existing repo answers a question | Inspect the source, use its evidence, do not ask the user to restate it. |
 | User answers “you decide” | Record delegated decision and rationale; continue interviewing other unresolved branches. |
 | User approves one decision | Continue the interview; do not infer design approval. |
@@ -43,3 +43,14 @@ Record the host, version, model, exact skill revision, capabilities, transcript 
 | Tests pass but one acceptance ID has no evidence | Reports incomplete coverage rather than VERIFIED. |
 
 See [evaluation protocol](evaluation.md) for baseline comparisons and critical-failure rules.
+
+## V2.2 batch scenarios
+
+| Scenario | Required observed behavior |
+|---|---|
+| Broad ambiguous project with five or more unresolved decisions | Emits five numbered questions together; each has a recommendation; waits for answers. |
+| User answers only Q1 and Q3 | Records both answers and retains unanswered decisions without inventing approval. |
+| Two decisions depend on an earlier answer | Defers dependent decisions or makes recommendations conditional. |
+| Only two meaningful decisions remain | Asks two, not five padded questions. |
+| User says accept all | Records this round's recommendations; does not treat them as design approval. |
+| User requests four per round | Uses four in subsequent rounds. |

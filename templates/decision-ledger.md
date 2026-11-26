@@ -3,6 +3,7 @@
 Project:
 Goal:
 Revision:
+Current round / next question number:
 Current phase: inspect / grill / approval / build / verify / stop
 
 | ID | Decision | Evidence/confidence | Recommendation / alternative | Answer | Status | Dependencies | Acceptance ID |
@@ -33,4 +34,4 @@ Current phase: inspect / grill / approval / build / verify / stop
 - Deferred / blocked decisions:
 - Current task:
 - Changed files / artifacts:
-- Next question or action:
+- Next question batch or action:

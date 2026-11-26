@@ -1,40 +1,43 @@
 # Example conversations
 
-These are synthetic illustrations of expected behavior, not actual model test runs.
+Illustrations of intended behavior, not recorded evaluations.
 
-## 1. Software — exports
+## Coding
 
-**User:** Add report exports.
+**User:** Build a report export feature.
 
-**Agent, Q1 — Data scope:** Should the export represent the user's current filtered view or all authorized records? A full export changes privacy, file size and performance requirements. **Recommendation:** filtered and authorized rows by default; explicit full export only if required. Alternative: full authorized dataset with quotas. Which scope should we use?
+**Round 1 — five decisions**
 
-**User:** Filtered only.
+1. **Data scope:** Which records should be included? Recommended: authorized records matching current filters, to avoid accidental disclosure.
+2. **Format:** Which file format? Recommended: CSV first, because it is widely supported. Alternative: XLSX for formatted reports.
+3. **Size:** What should the initial size limit be? Recommended: measure typical workloads and set an explicit limit rather than allow unbounded exports.
+4. **Access:** How is authorization enforced? Recommended: server-side checks for each export.
+5. **Success:** How do we test it? Recommended: filtered results, unauthorized access and boundary tests.
 
-**Agent, Q2 — Export workload:** Should the export be synchronous for small files or a background job? Large jobs could time out. **Recommendation:** use a synchronous export under an agreed row limit, then return a clear error or queue if larger exports are required. Alternative: always use a queue, with extra complexity. What is your expected maximum row count?
+**User:** Accept all except Q2, use XLSX.
 
-The agent records the answer and continues until the relevant acceptance criteria and risks are resolved. It requests full design approval before code changes.
+**Agent:** Records Q1–Q5, then asks Q6–Q10 about remaining material decisions, adapted to XLSX. If only two remain, asks two. It does not start coding until the full design is approved.
 
-## 2. Creative — animated short
+## Creative project
 
-**User:** Create a stylized animated short with the supplied references.
+**User:** Create a stylized animated short from references.
 
-**Agent, Q1 — Fidelity:** Which matters most: matching character silhouette and motion style, or making environments more realistic? Both can conflict visually. **Recommendation:** prioritize silhouette and motion fidelity; preserve simplified environments unless the references support greater realism. Alternative: more realistic lighting, but with a higher render cost and possible style drift. Which is more important?
+1. **Visual fidelity:** Recommended: match silhouette and motion before increasing realism.
+2. **Duration:** Recommended: agree on a duration range suited to the story and platform.
+3. **Narration:** Recommended: use a consistent narrator and sync actions to speech.
+4. **Rendering:** Recommended: confirm available compute and use a representative preview before full export.
+5. **Quality:** Recommended: define visible acceptance criteria for movement, camera, captions and audio.
 
-If reference media is not accessible, the agent marks fidelity observations unknown instead of inventing them. Before rendering, it agrees on duration, aspect ratio, story, motion, budget and representative visual acceptance checks.
+If references are unavailable, the agent labels fidelity judgments uncertain. The next round uses actual answers.
 
-## 3. Research — choose a tool
+## Research
 
-**User:** Decide which database we should use.
+**User:** Choose a database for our project.
 
-**Agent, Q1 — Workload:** Is the critical path transactional writes with consistency guarantees, or analytics over large historical datasets? The answer affects data layout and trade-offs. **Recommendation:** choose based on measured access patterns rather than popularity; collect the workload before selecting a database. Alternative: choose a familiar general-purpose database provisionally. Which workload dominates?
+1. **Workload:** Recommended: identify dominant access patterns before choosing a database.
+2. **Consistency:** Recommended: clarify transactional requirements rather than assume eventual consistency is sufficient.
+3. **Scale:** Recommended: use measured expected read/write volume and retention.
+4. **Operations:** Recommended: prefer a maintainable system within the actual team's resources.
+5. **Evaluation:** Recommended: define a representative comparison with actual benchmarks where possible.
 
-A chat-only agent can still interview, compare supplied evidence and produce a design; it cannot claim to have run performance benchmarks.
-
-## 4. Completion handoff (illustrative)
-
-- A1: export respects authorized filters — pass, evidence: focused integration test.
-- A2: large export returns an actionable error — pass, evidence: boundary test.
-- A3: UI accessibility — unrun, no browser available.
-- Status: PARTIAL. Manual verification instructions included.
-
-The agent stops when approved criteria pass or a real blocker prevents completion. It does not launch optional improvement loops.
+A chat-only assistant can design an evaluation; it must not claim to have executed benchmarks.

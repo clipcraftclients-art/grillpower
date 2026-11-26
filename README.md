@@ -8,6 +8,8 @@ An AI skill for people who want their agent to challenge the plan before it writ
 [![Stars](https://img.shields.io/github/stars/clipcraftclients-art/grillpower?style=flat)](https://github.com/clipcraftclients-art/grillpower/stargazers)
 [![Skill](https://img.shields.io/badge/Agent%20Skills-compatible-222222)](https://agentskills.io/specification)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 [Install](#install) · [See it in action](#see-it-in-action) · [How it works](#how-it-works) · [Compatibility](COMPATIBILITY.md)
 
 ## Install
@@ -104,3 +106,7 @@ Native routes are documented for Codex, Claude Code, Antigravity, Cursor, Gemini
 Run `python3 validate.py` for offline structural checks. Live behavior, installer execution and token savings remain unmeasured. [Behavioral test scenarios](references/pressure-tests.md) and [comparison protocol](references/evaluation.md) are available to reproduce evaluations fairly.
 
 If GrillPower helps your project, consider starring the repository or sharing a reproducible before/after example. [Report an issue](https://github.com/clipcraftclients-art/grillpower/issues) · [Contributing](CONTRIBUTING.md).
+
+## License
+
+[MIT](LICENSE) © 2026 ZYRO.

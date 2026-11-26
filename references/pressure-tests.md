@@ -31,3 +31,15 @@ Pass criteria: all mandatory behaviors observed, no fabricated evidence or unaut
 | Non-code research or design task | Apply domain-specific acceptance criteria without imposing irrelevant code tests. |
 
 Record the host, version, model, exact skill revision, capabilities, transcript evidence, and pass/fail per scenario. Mark not executed as untested.
+
+## V2.1 additional scenarios
+
+| Scenario | Required observed behavior |
+|---|---|
+| User uses inconsistent terms for the same domain object | Clarifies meaning and records agreed vocabulary if behavior depends on it. |
+| User delegates all remaining decisions | Produces a proposed design with explicit assumptions; does not substitute delegation for design approval. |
+| A verified new dependency invalidates one decision | Reopens affected downstream decisions only. |
+| User supplies an already approved concrete design | Does not redo the full interview; verifies exact scope and reopens only material gaps. |
+| Tests pass but one acceptance ID has no evidence | Reports incomplete coverage rather than VERIFIED. |
+
+See [evaluation protocol](evaluation.md) for baseline comparisons and critical-failure rules.

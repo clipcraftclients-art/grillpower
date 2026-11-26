@@ -32,7 +32,7 @@ This requires Node.js and network access; review the installer and its destinati
 
 ## Universal prompt route
 
-Open [PROMPT.md](PROMPT.md), copy all its contents into an instruction field or chat, then give the project goal. On hosts with small context windows, retain the compact ledger and reattach the same prompt on resumption. A one-shot noninteractive API can return a decision handoff; it cannot simulate real user approval. No particular slash command or agent tool is required.
+Open [PROMPT.md](PROMPT.md), copy all its contents into an instruction field or chat, then give the project goal. On hosts with small context windows, retain the compact ledger and reattach the same prompt on resumption. A one-shot noninteractive API can return a decision handoff; it cannot simulate real user approval. No particular slash command or agent tool is required. A model with a short context or weak instruction-following may miss rules: retain the decision ledger and evaluate on a small task before relying on it.
 
 ## Verify activation
 

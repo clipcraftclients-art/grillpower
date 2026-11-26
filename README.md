@@ -1,123 +1,96 @@
-# GrillPower — Universal
+# GrillPower
 
-**Make any AI ask better questions before it builds the wrong thing.**
+**Stop letting your AI build the wrong thing.**
 
-Deep interviews. Hard trade-offs. Approved designs. Tested implementation. No endless improvement loops.
+A universal deep-interview skill that turns uncertain ideas into approved designs, then builds and verifies them without endless improvement loops.
 
-![Version](https://img.shields.io/badge/version-2.0-orange)
-![Dependencies](https://img.shields.io/badge/runtime_dependencies-none-brightgreen)
-![GitHub stars](https://img.shields.io/github/stars/clipcraftclients-art/grillpower?style=flat)
+[![Release](https://img.shields.io/github/v/release/clipcraftclients-art/grillpower)](https://github.com/clipcraftclients-art/grillpower/releases)
+[![Stars](https://img.shields.io/github/stars/clipcraftclients-art/grillpower?style=flat)](https://github.com/clipcraftclients-art/grillpower/stargazers)
+[![Dependencies](https://img.shields.io/badge/runtime_dependencies-none-brightgreen)](#installation)
 
-GrillPower is a standalone, model-independent AI agent skill inspired by [Grill Me](https://github.com/mattpocock/skills) and [Superpowers](https://github.com/obra/superpowers). It combines an adaptive design interview with disciplined execution and verification. It is an independent synthesis, not an official fork of either project.
+[Install](#installation) · [Try it](#try-it) · [All agents](COMPATIBILITY.md) · [Universal prompt](PROMPT.md) · [Evaluation](references/evaluation.md)
 
-## The problem
-
-Coding agents often implement a plausible solution before the requirements are clear. The result can be rework, wasted usage, and features that pass tests but miss the intended outcome.
-
-GrillPower makes consequential decisions explicit **before** implementation. After approval, it focuses on completing the agreed scope rather than running arbitrary improvement loops.
-
-## How it works
-
-```mermaid
-flowchart LR
-    A[Inspect project] --> B[Deep interview]
-    B --> C[Approved design]
-    C --> D[Implement]
-    D --> E[Review and verify]
-    E --> F[Stop]
-    E -->|Concrete defect| G[Targeted repair]
-    G --> E
-```
-
-| Capability | Behavior |
-|---|---|
-| Deep interview | One consequential question at a time; typically 12–25 or more for complex work |
-| Recommended answers | Evidence, rationale and alternatives for each question |
-| Decision ledger | Retains confirmed choices and delegated decisions |
-| Critical review | Challenges contradictions and weak assumptions |
-| Implementation | Autonomous within approved scope |
-| Verification | Tests, regression checks and inspection of real outputs |
-| Usage discipline | No fixed improvement cycles or speculative polishing |
-
-## Use with any AI
-
-Native skills when supported; a complete paste-in prompt everywhere else. One workflow for coding, product planning, creative projects, research and operations. Actual execution depends on the host's tools and permissions.
-
-| Environment | How to use |
-|---|---|
-| Codex, Claude Code, Antigravity, Gemini CLI, Cursor, Copilot, OpenCode | Native SKILL.md integration |
-| Cline, Roo Code, Amp, OpenHands, OpenClaw and other agents | Native route where supported, or plain prompt |
-| ChatGPT, Claude, Gemini, Grok, DeepSeek, Qwen and local models | Copy [PROMPT.md](PROMPT.md) into chat or custom instructions |
-| Custom API agents | Include the prompt in the appropriate instruction context and preserve the decision ledger |
-
-[Compatibility and installation guide](COMPATIBILITY.md) · [Universal copy-paste prompt](PROMPT.md) · [Behavioral tests](references/pressure-tests.md)
-
-## Quick start
-
-Optional installer (Node.js/network required; review its proposed installation):
+## Installation
 
 ```bash
 npx skills add clipcraftclients-art/grillpower --skill grillpower
 ```
 
-Or install manually below. No Node.js, Python, API key or additional framework is required to *use* the skill. The validator is optional.
+Choose your agent in the installer. Requires Node.js and network access only for this optional third-party install method. Review its proposed destination and permissions. The skill itself has no runtime dependencies.
 
+**No skill installer?** Copy [PROMPT.md](PROMPT.md) into ChatGPT, Claude, Gemini, Grok, DeepSeek, a local model, or any assistant that accepts instructions. For native manual installation, place `SKILL.md` and `references/` in your agent's recognized `grillpower/` directory. [Full compatibility guide →](COMPATIBILITY.md)
 
+## Try it
 
-For a host that discovers skills under `~/.agents/skills` (including compatible Codex setups):
+> Use GrillPower. Grill me on my idea until we've resolved every important decision. Recommend an answer to each question. Don't build until I approve the design.
 
-```bash
-git clone https://github.com/clipcraftclients-art/grillpower.git "$HOME/.agents/skills/grillpower"
+Then give it a real idea, feature, refactor, project or creative brief.
+
+## What changes?
+
+Illustrative example, not a recorded benchmark.
+
+**You:** Add a button that exports our reports.
+
+| Without a clear decision | With GrillPower |
+|---|---|
+| The agent immediately creates an export endpoint. | It first asks whether exports include filtered, authorized records or the full dataset. |
+| You discover later that permissions and file size were never considered. | It recommends filtered export, explains the privacy and resource trade-offs, and asks you to choose. |
+| You spend another session fixing the wrong assumptions. | It records your decision, asks the next material question, and waits for design approval before implementation. |
+
+The goal isn't more AI output. It's fewer expensive wrong turns.
+
+## How it works
+
+```mermaid
+flowchart LR
+    A[Inspect] --> B[Grill]
+    B --> C[Approve design]
+    C --> D[Build]
+    D --> E[Verify]
+    E --> F[Stop]
+    E -->|Actual defect| G[Bounded repair]
+    G --> E
 ```
 
-For Claude Code, use its personal skill directory if supported:
+**Grill deeply:** one consequential question per turn; recommendation, rationale, alternative, and an adaptive follow-up. Complex work may need many questions. The count is not a quota.
 
-```bash
-git clone https://github.com/clipcraftclients-art/grillpower.git "$HOME/.claude/skills/grillpower"
-```
+**Decide clearly:** a compact decision ledger, shared terminology, assumptions, non-goals, testable acceptance criteria and an explicit approval gate.
 
-For Antigravity or another coding agent, clone or download this repository and place the skill in your installed version's recognized skill directory. Keep `SKILL.md` and `references/` together. Alternatively, attach the files and explicitly request that the agent read them. Restart/reload skill discovery if necessary.
+**Build efficiently:** autonomous implementation within scope, root-cause debugging, one consolidated review and targeted tests. No fixed improvement cycles, forced subagents or speculative polishing.
 
-Then say:
+**Verify honestly:** actual tests or artifact inspection, acceptance evidence, blockers and unrun checks. Chat-only assistants provide plans and drafts rather than pretending they executed tools.
 
-> Use GrillPower. Investigate my project, challenge my assumptions, ask one consequential question at a time, and recommend an answer to every question. Once all important decisions are resolved, present the design for my approval. After approval, implement and verify it.
+## Works beyond coding
 
-Slash commands and skill discovery vary by host; no particular integration is guaranteed. No API keys or additional skill frameworks are required. The optional validator requires Python 3.
+| Use case | What GrillPower challenges |
+|---|---|
+| Software and architecture | Interfaces, migration, edge cases, security, testability |
+| Product and business | User needs, trade-offs, scope, feasibility, success measures |
+| Creative and video | Style references, pacing, constraints, render and output quality |
+| Research and data | Source credibility, assumptions, methods and uncertainty |
+| Automation | Triggers, permissions, recovery, resource limits |
 
-## Example conversation
+Native skill routes are documented for Codex, Claude Code, Antigravity, Cursor, Gemini CLI, Copilot and OpenCode. Other agents can use the complete plain-text prompt. [Compatibility and installation](COMPATIBILITY.md). Host support and actual model behavior vary.
 
-**You:** Build a new feature that lets customers export reports.
+## What makes it different?
 
-**GrillPower: Q1 — Export scope**
+GrillPower is deliberately one deep workflow, not a collection of competing modes. It combines a decision interview, explicit design approval, scope-limited implementation and evidence-backed completion. It's inspired by [Matt Pocock's skills](https://github.com/mattpocock/skills) and [Superpowers](https://github.com/obra/superpowers), not affiliated with them or a measured replacement for them.
 
-- **Question:** Should exports use the current filtered view or the complete dataset?
-- **Why it matters:** The wrong default can leak unintended records or confuse users.
-- **Recommended answer:** Export the authorized filtered view by default; make full export a separate, explicit action if required.
-- **Alternative:** Always export the full dataset, which is simpler but may violate expectations.
+Deep interviews cost tokens. The design aims to avoid rework and unnecessary execution after approval; savings are not yet measured.
 
-You can accept, disagree, or delegate the decision. The next question uses your answer. The agent does not begin implementation until you approve the complete design.
+## Examples and evaluation
 
-## Designed to conserve usage
+- [Example conversations](examples/README.md) — software, research and creative work.
+- [Behavioral scenarios](references/pressure-tests.md) — test the skill against pressure, missing tools and interrupted sessions.
+- [Evaluation rubric](references/evaluation.md) — compare a baseline agent and GrillPower using the same tasks.
+- [Decision ledger template](templates/decision-ledger.md) — optional portable handoff.
+- [Changelog](CHANGELOG.md) — version history.
 
-Deep thinking is not free. GrillPower spends effort where design decisions are consequential, then uses one focused implementation pass, one consolidated review, essential verification, and targeted repairs only when needed. No promise of token savings is made without measurements.
+Run `python3 validate.py` for offline structural checks (Python 3 only). Structural checks do not establish model compliance. Live multi-agent evaluations, comparative results and token savings remain unmeasured.
 
-## What's included
+## Help improve GrillPower
 
-- [SKILL.md](SKILL.md) — canonical workflow
-- [PROMPT.md](PROMPT.md) — identical workflow without frontmatter for chat-only agents
-- [COMPATIBILITY.md](COMPATIBILITY.md) — native installation and fallback routes
-- [Deep review checklist](references/deep-review.md) — architecture, security, operations, UX, and optional animation/media quality
-- [Pressure tests](references/pressure-tests.md) — reproducible behavioral evaluation scenarios
-- [Validator](validate.py) — lightweight static checks
+If the skill helps you avoid a wrong turn, consider starring the repository. Share reproducible failures and useful examples via [Issues](https://github.com/clipcraftclients-art/grillpower/issues). See [Contributing](CONTRIBUTING.md) for a concise bug-report format. Please redact private code and secrets.
 
-Run `python3 validate.py` from any checkout or release archive to check structure, prompt parity, and reference presence. Native installations should use a folder named `grillpower`. Static checks do not prove model compliance or superiority to other skills. Live installation and behavioral benchmarks are pending. Universal means a portable instruction format and a tool-aware fallback, not identical performance or guaranteed compatibility across every host.
-
-## Contribute
-
-Try the skill on a real project. Share concrete examples, missing cases, or reproducible failures through [Issues](https://github.com/clipcraftclients-art/grillpower/issues). Include the agent, version, expected behavior and actual behavior; redact secrets and private code.
-
-If it helps you avoid an expensive wrong turn, consider starring the repository.
-
-## Credits
-
-Inspired by Matt Pocock's [skills](https://github.com/mattpocock/skills) and Jesse Vincent's [Superpowers](https://github.com/obra/superpowers). No affiliation or endorsement is implied.
+GrillPower is an instruction package, not an agent runtime. It does not grant permissions, execute background work or require API keys. It respects the host's actual capabilities.

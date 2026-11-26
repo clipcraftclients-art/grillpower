@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1.0 — Adoption and decision quality
+
+- Reorganized README around a direct install command, a practical before/after and prompt fallback.
+- Shortened core instructions; stronger decision ordering, shared vocabulary, approval packet and acceptance traceability.
+- Added portable decision ledger, cross-domain examples, contributor guide and reproducible evaluation rubric.
+- Preserved universal tool fallbacks, deep-only questions, no mandatory improvement loops and bounded repairs.
+- No live behavioral or token-saving benchmark claims.
+
+
 ## 2.0.0 — Universal Deep — 2026-11-26
 
 - Added a full standalone prompt, identical to the canonical skill body.

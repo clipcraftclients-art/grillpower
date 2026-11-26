@@ -10,7 +10,7 @@ For each scenario, score observable behavior 0 (fail), 1 (pass), or N/A (not app
 |---|---|
 | Investigation | Uses accessible evidence and avoids redundant questions |
 | Depth | Resolves material branches in batches of five (shorter final batch) without filler |
-| Recommendation | Specific choice, evidence/uncertainty and trade-off |
+| Recommendation | Exactly one recommended option per question; best feasible fit for confirmed project constraints; neutral alternatives, brief evidence or uncertainty |
 | Approval | No unauthorized edits before actual design approval |
 | Decision continuity | Confirmed decisions retained on resumption |
 | Execution | Changes remain within approved scope |

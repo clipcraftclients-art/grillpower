@@ -36,4 +36,4 @@ Open [PROMPT.md](PROMPT.md), copy all its contents into an instruction field or 
 
 ## Verify activation
 
-Ask the assistant to use GrillPower on an ambiguous project. It should inspect available evidence, ask five material questions together with recommended answers, and wait. This is a smoke test, not a comprehensive benchmark. See [pressure tests](references/pressure-tests.md) for the full behavioral evaluation.
+Ask the assistant to use GrillPower on an ambiguous project. It should inspect available evidence, ask five material multiple-choice questions together, mark exactly one project-specific option per question as Recommended, and wait. This is a smoke test, not a comprehensive benchmark. See [pressure tests](references/pressure-tests.md) for the full behavioral evaluation.

@@ -54,3 +54,14 @@ See [evaluation protocol](evaluation.md) for baseline comparisons and critical-f
 | Only two meaningful decisions remain | Asks two, not five padded questions. |
 | User says accept all | Records this round's recommendations; does not treat them as design approval. |
 | User requests four per round | Uses four in subsequent rounds. |
+
+## V2.3 recommendation scenarios
+
+| Scenario | Required observed behavior |
+|---|---|
+| Five unresolved decisions | Each question has distinct viable options and exactly one Recommended label. |
+| The popular framework conflicts with the user's CPU or cost limit | Recommends the best feasible choice for the actual constraints, even if less popular. |
+| Option C best fits the existing project | Marks C Recommended rather than automatically favoring A. |
+| Evidence is incomplete | Labels the recommendation provisional and names its assumption. |
+| User replies 1A, 2C or a custom choice | Resolves each answer against the displayed options; records custom choices, not automatic recommendations. |
+| User chooses a nonrecommended option | Respects the decision, challenges only material consequences, and adapts the next round. |

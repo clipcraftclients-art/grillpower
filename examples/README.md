@@ -1,43 +1,42 @@
 # Example conversations
 
-Illustrations of intended behavior, not recorded evaluations.
+Illustrative examples, not recorded evaluations. Recommendations below assume the stated constraints and may change with actual project evidence.
 
-## Coding
+## Coding: report export
 
-**User:** Build a report export feature.
+Assume a small web app with existing filters and server-side authorization.
 
-**Round 1 — five decisions**
+**Q1 — Data scope**
+- A. Current authorized filtered records (Recommended)
+- B. All authorized records
+- Why: matches the view without expanding the export scope.
 
-1. **Data scope:** Which records should be included? Recommended: authorized records matching current filters, to avoid accidental disclosure.
-2. **Format:** Which file format? Recommended: CSV first, because it is widely supported. Alternative: XLSX for formatted reports.
-3. **Size:** What should the initial size limit be? Recommended: measure typical workloads and set an explicit limit rather than allow unbounded exports.
-4. **Access:** How is authorization enforced? Recommended: server-side checks for each export.
-5. **Success:** How do we test it? Recommended: filtered results, unauthorized access and boundary tests.
+**Q2 — File format**
+- A. XLSX
+- B. CSV (Recommended)
+- C. JSON
+- Why: a simple tabular export does not yet need spreadsheet formatting.
 
-**User:** Accept all except Q2, use XLSX.
+**Q3 — Size handling**
+- A. Unlimited requests
+- B. Asynchronous jobs for every export
+- C. Explicit measured size limit (Recommended)
+- Why: avoids unbounded work while keeping ordinary exports simple.
 
-**Agent:** Records Q1–Q5, then asks Q6–Q10 about remaining material decisions, adapted to XLSX. If only two remain, asks two. It does not start coding until the full design is approved.
+**Q4 — Authorization**
+- A. Recheck permissions on the server (Recommended)
+- B. Reuse a server-issued scoped export token
+- Why: fits the existing authorization path without introducing another token mechanism.
 
-## Creative project
+**Q5 — Verification**
+- A. Manual testing only
+- B. Focused integration tests for filters, permissions and limits (Recommended)
+- Why: covers the highest-risk behavior repeatably.
 
-**User:** Create a stylized animated short from references.
+User: 1A, 2A, 3C, 4A, 5B.
 
-1. **Visual fidelity:** Recommended: match silhouette and motion before increasing realism.
-2. **Duration:** Recommended: agree on a duration range suited to the story and platform.
-3. **Narration:** Recommended: use a consistent narrator and sync actions to speech.
-4. **Rendering:** Recommended: confirm available compute and use a representative preview before full export.
-5. **Quality:** Recommended: define visible acceptance criteria for movement, camera, captions and audio.
+The agent records these choices (including XLSX instead of CSV), then asks the next batch of unresolved questions. Accepting one or all recommendations never replaces design approval.
 
-If references are unavailable, the agent labels fidelity judgments uncertain. The next round uses actual answers.
+## Creative and research
 
-## Research
-
-**User:** Choose a database for our project.
-
-1. **Workload:** Recommended: identify dominant access patterns before choosing a database.
-2. **Consistency:** Recommended: clarify transactional requirements rather than assume eventual consistency is sufficient.
-3. **Scale:** Recommended: use measured expected read/write volume and retention.
-4. **Operations:** Recommended: prefer a maintainable system within the actual team's resources.
-5. **Evaluation:** Recommended: define a representative comparison with actual benchmarks where possible.
-
-A chat-only assistant can design an evaluation; it must not claim to have executed benchmarks.
+Use the same format for creative decisions (reference fidelity, style, motion, budget and quality) and research decisions (scope, evidence, methods, uncertainty and acceptance). Select one best option for each actual project, not a universal default. A chat-only assistant may draft an evaluation but cannot claim to have executed tests or renders.

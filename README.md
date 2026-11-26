@@ -17,29 +17,35 @@ Or copy [PROMPT.md](PROMPT.md) into any AI chat. The optional installer requires
 
 ## Use it
 
-> Use GrillPower. Grill me in rounds of five questions. Recommend an answer to each question, challenge my assumptions, and wait for design approval before building.
+> Use GrillPower. Grill me in rounds of five questions. Mark only the best option for my project as Recommended in each question, challenge my assumptions, and wait for design approval before building.
 
 Give the agent a project or idea. It inspects available evidence first.
 
 ## What you get
 
-Example: "Build a report export feature."
+Example: "Improve my animation engine on a limited CPU budget."
 
-| Question | Recommended answer |
-|---|---|
-| Q1. Which records should be exported? | Only authorized records matching the current filter. |
-| Q2. Which format should we support first? | CSV, for broad compatibility. |
-| Q3. How large can exports be? | Set a measured limit; avoid unbounded requests. |
-| Q4. How should permissions be enforced? | Recheck authorization on the server. |
-| Q5. How do we verify success? | Test filters, unauthorized access and size boundaries. |
+**Q1 — Which renderer should we use?**
+- A. Optimize the existing renderer (Recommended)
+- B. Replace the renderer
+- C. Support two renderers
 
-Reply by question number, or say **accept all**. The agent records the answers and asks the next five meaningful questions if necessary. This is an illustrative example, not a recorded benchmark.
+Why: If the existing renderer meets the visual requirements, keeping it avoids migration overhead.
+
+**Q2 — What animation approach should we use?**
+- A. Manual keyframes
+- B. Reusable rigs with editable keyframes (Recommended)
+- C. Fully procedural motion
+
+Why: Reusable rigs balance production speed and creative control.
+
+The agent asks Q1–Q5 together, with one project-specific recommendation for each question. The other options remain neutral. Reply like **1A, 2B, 3C, 4A, 5B**, or say **accept all**. Subsequent rounds adapt to your choices. Examples are illustrative, not recorded benchmarks.
 
 ## The workflow
 
 **Inspect → 5 questions per round → Design approval → Build → Verify → Stop**
 
-- Deep questioning, with a recommendation for every question.
+- Deep questioning, with exactly one recommended option per question.
 - No repeated questions or filler; the final round can be shorter.
 - Explicit approval before implementation.
 - One focused implementation pass, consolidated review and essential tests.

@@ -2,7 +2,7 @@
 name: grillpower
 description: Use when a user wants deep critical questioning, requirements discovery, architecture or design review, or a rigorous interview before building a project, product, code change, creative artifact, research workflow, or operational process.
 ---
-# GrillPower — Universal Deep v2.2
+# GrillPower — Universal Deep v2.3
 
 One workflow: **inspect → grill → agree → build → verify → stop**. Challenge decisions, not people. Resolve consequential uncertainty before spending effort on implementation. No fast mode, no arbitrary improvement loops, no mandatory extra tools. Apply this skill when requested or when its trigger clearly matches the user's intent; do not hijack ordinary quick questions. Follow higher-priority instructions and actual permissions.
 
@@ -23,14 +23,20 @@ Never invent file access, tool results, permissions, background execution or pai
 
 Ask **five distinct, consequential questions per round** in one response, then wait for the user's answers. Choose questions after inspecting available evidence. Prioritize decisions that unlock other decisions. Do not ask questions the user already answered.
 
-Use this compact format for each question:
+Use a compact multiple-choice format with **exactly one Recommended option per question**. Offer two to four genuinely viable, distinct choices; do not invent extra options to meet a count.
 
-**Q1 — Decision title**
-- Question: one clear choice.
-- Recommended: the best answer and a brief reason grounded in evidence.
-- Alternative: another viable option and its main trade-off, if useful.
+**Q1 — Which rendering approach should we use?**
+- A. Keep and optimize the current renderer (Recommended)
+- B. Replace it with a different renderer
+- C. Maintain separate rendering backends
 
-Number questions continuously across rounds (Q1–Q5, Q6–Q10, etc.). Keep each question easy to answer. Finish with: "Reply with your answers by number, or say 'accept all' to use my recommendations for this round."
+Why: Keeping the current renderer best fits the confirmed constraints in this illustrative example, avoiding migration work unless evidence supports a replacement.
+
+Choose the recommendation specifically for the user's actual project: compare options against confirmed goals, existing work, constraints, budget, available tools, risks, and expected quality. Prefer the highest-value feasible option, not the most sophisticated, popular, expensive or easiest option by default. Inspect evidence before recommending; if uncertain, label the recommendation provisional and name the assumption briefly. Do not ask the user to choose something that available evidence already resolves.
+
+Mark only the single best option with "(Recommended)". Present all other options neutrally, using ordinary text without rankings, negative labels, or extra badges. Use a short reason for the recommended option only, unless an important trade-off needs explanation. Do not always favor A; the recommendation must follow the evidence, regardless of option position. The user may choose any option or supply a custom answer.
+
+Number questions continuously (Q1–Q5, Q6–Q10, etc.). Finish with: "Reply like 1A, 2C, 3B, 4A, 5B, or say 'accept all' to use my recommendations for this round." Interpret letter replies against the actual displayed options, never a fixed recommendation letter.
 
 After receiving answers:
 - Update the decision ledger; summarize only material changes.

@@ -29,8 +29,10 @@ Use this as a decision-tree checklist, not a script of questions. Mark each cate
 **Q7 — Character outlines**
 - Question: Should outlines be stable in screen space or scale with character distance?
 - Why it matters: distance-scaled lines can disappear on wide shots, while fixed-width lines can dominate small characters.
-- My recommended answer: use a clamped screen-space width, with a scene-level style override, and test it in near and far shots. This is a proposal until the renderer and reference frames are inspected.
-- Alternative: world-space geometry outlines, easier in some renderers but sensitive to distance and mesh intersections.
+- A. Clamped screen-space width with a scene-level override (Recommended)
+- B. World-space geometry outlines
+- C. Fixed world-space line width
+- Why: clamping can preserve readability in near and far shots. This recommendation is provisional until renderer and references are inspected.
 
 Choose the recommendation, the alternative, or a different behavior.
 

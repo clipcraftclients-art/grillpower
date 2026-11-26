@@ -22,7 +22,8 @@ required = (
 checks = {
     "valid frontmatter": bool(m and m[1] == "grillpower" and 1 <= len(m[2]) <= 1024),
     "skill and prompt identical": bool(body and p == body),
-    "deep interview": "five distinct, consequential questions per round" in s and "Recommended:" in s,
+    "deep interview": "five distinct, consequential questions per round" in s and "exactly one Recommended option per question" in s,
+    "choice format": all(x in s for x in ("(Recommended)", "all other options neutrally", "actual project", "1A, 2C")),
     "batch adaptation": all(x in s for x in ("Q1–Q5", "Accept partial replies", "fewer than five", "not approval to implement")),
     "actual approval gate": "No implementation before the user approves" in s and "Wait." in s,
     "capability fallback": all(x in s for x in ("Conversation only", "Read-only", "Editing without execution", "Editing plus execution")),

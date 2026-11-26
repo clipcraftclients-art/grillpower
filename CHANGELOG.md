@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.3.0 — Clear choices, one best recommendation
+
+- Five multiple-choice questions per round, with two to four viable options each.
+- Exactly one Recommended label per question, based on project evidence and constraints.
+- Neutral alternative options, concise rationale and lettered answers.
+- Retained deep interviews, explicit design approval and no automatic improvement cycles.
+
+
 ## 2.2.0 — Five-question rounds
 
 - Five consequential questions per round, with concise recommendations and trade-offs.
